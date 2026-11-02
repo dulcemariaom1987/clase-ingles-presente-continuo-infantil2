@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<title>¡Estoy aprendiendo! Presente Continuo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg1:#fff3b0;--bg2:#ffc2e2;--card:#fff;--ink:#2b2250;--p:#7c4dff;--o:#ff7a00;--g:#0fb67f;--b:#18a0fb;--r:#ff4d6d;--soft:#f3eeff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1b5e;--bg2:#12324f;--card:#2d2b55;--ink:#fff6e0;--soft:#3b3870}}
+:root[data-theme="dark"]{--bg1:#2a1b5e;--bg2:#12324f;--card:#2d2b55;--ink:#fff6e0;--soft:#3b3870}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Fredoka","Comic Sans MS",system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2));background-attachment:fixed;min-height:100vh;font-size:18px}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+#bg span{position:absolute;bottom:-60px;font-size:34px;opacity:.5;animation:fl linear infinite}
+@keyframes fl{to{transform:translateY(-115vh) rotate(360deg)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes wig{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes up{to{transform:translateY(-120px) scale(1.6);opacity:0}}
+header{position:relative;z-index:1;text-align:center;padding:14px 10px 4px}
+h1{margin:0;font-size:clamp(26px,6vw,46px);background:linear-gradient(90deg,var(--r),var(--o),var(--g),var(--b),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent;animation:bnc 2s infinite}
+#stars{display:inline-block;background:var(--card);border-radius:30px;padding:4px 16px;font-weight:700;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+nav{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px}
+nav button{font:inherit;font-weight:600;border:0;border-radius:18px;padding:10px 14px;color:#fff;background:var(--c);cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.2);transition:transform .15s}
+nav button:hover{transform:translateY(-3px) rotate(-2deg)}
+nav button.on{outline:4px solid var(--ink)}
+main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:6px 12px 60px}
+.card{background:var(--card);border-radius:24px;padding:18px;margin:12px 0;box-shadow:0 6px 0 rgba(0,0,0,.12);animation:pop .5s both}
+h2{margin:0 0 8px;color:var(--p)}
+.sp{font-size:20px;border:0;border-radius:50%;width:38px;height:38px;background:var(--b);color:#fff;cursor:pointer;vertical-align:middle;margin:0 4px}
+.sp:hover{animation:wig .4s infinite}
+.formula{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;font-weight:700;font-size:22px}
+.formula span{background:var(--c);color:#fff;border-radius:14px;padding:8px 14px}
+table{width:100%;border-collapse:collapse}td,th{padding:6px;border-bottom:2px dashed var(--soft);text-align:left}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.vc{background:var(--soft);border:0;border-radius:20px;padding:12px;font:inherit;color:var(--ink);cursor:pointer;text-align:center;transition:transform .2s}
+.vc:hover{transform:scale(1.06) rotate(-2deg)}.vc .e{font-size:48px;display:block;animation:bnc 2s infinite}
+.big{font-size:70px;text-align:center;animation:bnc 1.5s infinite}
+.btn{font:inherit;font-weight:700;border:0;border-radius:16px;padding:10px 18px;color:#fff;background:var(--g);cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2);margin:4px}
+.btn.o{background:var(--o)}.btn.p{background:var(--p)}
+.opts{display:grid;gap:10px;margin-top:10px}
+.opt{font:inherit;font-weight:600;font-size:20px;border:3px solid var(--p);background:var(--card);color:var(--ink);border-radius:16px;padding:12px;cursor:pointer}
+.opt:hover{background:var(--soft)}.opt.good{background:var(--g);color:#fff;border-color:var(--g);animation:pop .4s}.opt.bad{background:var(--r);color:#fff;border-color:var(--r);animation:shk .4s}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0;border-bottom:2px dashed var(--soft)}
+.row .e{font-size:36px}.row .t{flex:1;min-width:180px}
+input{font:inherit;font-size:20px;width:150px;padding:8px 12px;border:3px solid var(--b);border-radius:14px;background:var(--card);color:var(--ink)}
+input.good{border-color:var(--g);background:#c9f7e5;color:#064}input.bad{border-color:var(--r);animation:shk .4s}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mc{aspect-ratio:1;border:0;border-radius:18px;font:inherit;font-weight:700;font-size:clamp(14px,3.6vw,22px);background:var(--p);color:#fff;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2);padding:2px;transition:transform .2s}
+.mc.up{background:var(--soft);color:var(--ink)}.mc.up .em{font-size:clamp(28px,8vw,48px)}.mc.done{background:var(--g);color:#fff;animation:pop .5s}
+.ws{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:440px;margin:10px auto}
+.ws button{aspect-ratio:1;border:0;border-radius:8px;font:inherit;font-weight:700;font-size:clamp(14px,4vw,22px);background:var(--soft);color:var(--ink);cursor:pointer;padding:0}
+.ws button.s{background:var(--o);color:#fff}.ws button.f{background:var(--g);color:#fff;animation:pop .4s}
+.chip{display:inline-block;background:var(--soft);border-radius:14px;padding:6px 12px;margin:4px;font-weight:600}.chip.f{background:var(--g);color:#fff;text-decoration:line-through}
+.tk{font:inherit;font-weight:700;font-size:22px;border:0;border-radius:14px;padding:10px 14px;margin:4px;background:var(--o);color:#fff;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+.line{min-height:64px;border:3px dashed var(--p);border-radius:16px;padding:6px;margin:8px 0}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:9;background:var(--ink);color:var(--card);padding:10px 22px;border-radius:30px;font-weight:700;display:none}
+.yay{position:fixed;z-index:9;font-size:44px;pointer-events:none;animation:up 1s forwards}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<div id="bg" aria-hidden="true"></div>
+<header><h1>🎈 ¡Estoy aprendiendo inglés! 🎈</h1><div>Tema: <b>Presente Continuo</b> &nbsp; <span id="stars">⭐ <span id="st">0</span></span></div></header>
+<nav id="nav"></nav>
+<main id="v"></main>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s),R=a=>a[Math.floor(Math.random()*a.length)],sh=a=>[...a].sort(()=>Math.random()-.5),RI=n=>Math.floor(Math.random()*n);
+const V=[["run","running","correr","corriendo","🏃"],["jump","jumping","saltar","saltando","🦘"],["eat","eating","comer","comiendo","🍎"],["sleep","sleeping","dormir","durmiendo","😴"],["swim","swimming","nadar","nadando","🏊"],["dance","dancing","bailar","bailando","💃"],["read","reading","leer","leyendo","📖"],["sing","singing","cantar","cantando","🎤"],["draw","drawing","dibujar","dibujando","🎨"],["play","playing","jugar","jugando","⚽"],["drink","drinking","beber","bebiendo","🥤"],["write","writing","escribir","escribiendo","✍️"]];
+const P=[["I","am","yo","estoy"],["You","are","tú","estás"],["He","is","él","está"],["She","is","ella","está"],["It","is","eso","está"],["We","are","nosotros","estamos"],["They","are","ellos","están"]];
+const BE=["am","is","are"];
+let stars=0;
+function say(t){try{const s=window.speechSynthesis;if(!s)return;s.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";const v=s.getVoices().find(x=>x.lang==="en-US");if(v)u.voice=v;u.rate=.85;s.speak(u)}catch(e){}}
+const sp=t=>`<button class="sp" data-s="${t}" onclick="say(this.dataset.s)" aria-label="Escuchar">🔊</button>`;
+function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",1300)}
+function ok(){stars++;$("#st").textContent=stars;toast(R(["¡Genial! 🎉","¡Súper! 🌟","¡Excelente! 🚀","¡Muy bien! 🦄","¡Increíble! 🏆"]));for(let i=0;i<5;i++){const d=document.createElement("div");d.className="yay";d.textContent=R(["🎉","⭐","🌈","🎈","✨"]);d.style.left=(20+RI(60))+"vw";d.style.top=(40+RI(30))+"vh";document.body.appendChild(d);setTimeout(()=>d.remove(),1000)}}
+function no(){toast(R(["¡Casi! Inténtalo otra vez 💪","¡Tú puedes! Prueba de nuevo 🌈"]))}
+const out=h=>{$("#v").innerHTML=h};
+const T={};
+const mk=()=>{const i=RI(7),v=R(V);return{i,v,s:P[i][0],b:P[i][1],es:P[i][2]+" "+P[i][3]+" "+v[3]}};
+/* APRENDE */
+T.learn=()=>out(`<div class="card"><h2>🌟 ¿Qué es el presente continuo?</h2><p>Lo usamos para hablar de lo que está pasando <b>ahora mismo</b>. En español decimos <b>estoy comiendo</b> o <b>ella está bailando</b>. ¡En inglés es parecido!</p></div>
+<div class="card"><h2>🧩 La fórmula mágica</h2><div class="formula"><span style="--c:var(--p)">Quién</span>+<span style="--c:var(--o)">am / is / are</span>+<span style="--c:var(--g)">verbo + ING</span></div><p>Ejemplo: <b>I am eating</b> ${sp("I am eating.")} (yo estoy comiendo)</p></div>
+<div class="card"><h2>👫 ¿Cuál uso: am, is o are?</h2><p>Toca el altavoz y repite en voz alta:</p><table>${P.map(p=>`<tr><td><b>${p[0]}</b> (${p[2]})</td><td style="color:var(--o);font-weight:700">${p[1]}</td><td>${sp(p[0]+" "+p[1]+" eating.")}</td></tr>`).join("")}</table></div>
+<div class="card"><h2>✨ Cómo se pone el ING</h2><p>🟢 <b>Normal:</b> solo agregamos ING. play → playing ${sp("playing")} &nbsp; eat → eating ${sp("eating")}</p><p>🟡 <b>Si termina en E:</b> quitamos la E. dance → dancing ${sp("dancing")} &nbsp; write → writing ${sp("writing")}</p><p>🔴 <b>Verbos cortitos:</b> doblamos la última letra. run → running ${sp("running")} &nbsp; swim → swimming ${sp("swimming")}</p></div>
+<div class="card"><h2>🙅 ¿Y si NO lo estoy haciendo? ¿Y las preguntas?</h2><p>Para decir <b>no</b>, ponemos <b>not</b> después de am / is / are: <b>She is not sleeping</b> ${sp("She is not sleeping.")}</p><p>Para preguntar, cambiamos el orden: <b>Is she sleeping?</b> ${sp("Is she sleeping?")}</p></div>
+<div class="card"><h2>🚀 ¡Ahora a jugar!</h2><p>Usa los botones de colores de arriba. Cada respuesta correcta te da una ⭐. ¡Vamos a juntar muchas!</p></div>`);
+/* VOCABULARIO */
+T.vocab=()=>out(`<div class="card"><h2>📚 Mis verbos</h2><p>Toca cada tarjeta para escuchar una frase.</p><div class="grid">${V.map((v,i)=>`<button class="vc" onclick="vc(${i},this)"><span class="e">${v[4]}</span><b>${v[0]} → ${v[1]}</b><br>${v[2]}<div class="s" style="color:var(--o);font-weight:700"></div></button>`).join("")}</div></div>`);
+function vc(i,el){const p=R(P),t=`${p[0]} ${p[1]} ${V[i][1]}.`;el.querySelector(".s").textContent=t;say(t)}
+/* QUIZ */
+let Q;
+T.quiz=()=>{Q={n:0,qs:Array.from({length:10},()=>RI(3))};qz()};
+function qz(){if(Q.n>=10){out(`<div class="card"><div class="big">🏆</div><h2>¡Terminaste el quiz!</h2><p>¡Eres un campeón o una campeona del presente continuo! ⭐ Total: ${stars}</p><button class="btn" onclick="T.quiz()">Jugar otra vez 🔁</button></div>`);return}
+const m=mk(),t=Q.qs[Q.n];let q,opts,good;
+if(t==0){q=`<div class="big">${m.v[4]}</div><h2>${m.s} ___ ${m.v[1]}.</h2><p>Elige la palabra que falta.</p>`;good=m.b;opts=BE}
+else if(t==1){const wb=R(BE.filter(x=>x!=m.b));q=`<div class="big">${m.v[4]}</div><h2>${m.es}</h2><p>Elige la frase correcta en inglés.</p>`;good=`${m.s} ${m.b} ${m.v[1]}`;opts=sh([good,`${m.s} ${m.v[1]}`,`${m.s} ${wb} ${m.v[0]}`])}
+else{const n=m.v[0]+"ing";q=`<div class="big">${m.v[4]}</div><h2>${m.v[0]} + ING = ?</h2><p>Elige cómo se escribe bien.</p>`;good=m.v[1];opts=sh([...new Set([good,n,m.v[0]+"ed",m.v[0]])]).slice(0,4);if(!opts.includes(good))opts[0]=good;opts=sh(opts)}
+out(`<div class="card"><p>Pregunta ${Q.n+1} de 10 &nbsp; ${sp(t==0?m.s+" "+m.b+" "+m.v[1]:(t==1?"":m.v[1]))}</p>${q}<div class="opts">${opts.map(o=>`<button class="opt">${o}</button>`).join("")}</div></div>`);
+document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(b.textContent===good){b.classList.add("good");say(b.textContent);ok();Q.n++;setTimeout(qz,1100)}else{b.classList.add("bad");b.disabled=true;no()}})}
+/* ESCRIBE */
+let W;
+T.write=()=>{W=Array.from({length:10},(_,i)=>{const m=mk();return i%2?{m,a:m.v[1],t:`<b>${m.s} ${m.b} ___</b> (${m.v[0]})`,h:"Escribe el verbo con ING"}:{m,a:m.b,t:`<b>${m.s} ___ ${m.v[1]}.</b>`,h:"Escribe am, is o are"}});
+out(`<div class="card"><h2>✏️ Escribe UNA palabra</h2><p>Mira el dibujo, lee y escribe solo la palabra que falta. Presiona ✔ o Enter.</p>${W.map((w,i)=>`<div class="row"><span class="e">${w.m.v[4]}</span><span class="t">${w.t}<br><small>${w.h}</small></span><input id="w${i}" maxlength="12" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="..." onkeydown="if(event.key==='Enter')wc(${i})"><button class="btn" onclick="wc(${i})">✔</button></div>`).join("")}</div>`)};
+function wc(i){const e=$("#w"+i);if(e.disabled)return;if(e.value.trim().toLowerCase()===W[i].a){e.className="good";e.disabled=true;say(W[i].m.s+" "+W[i].m.b+" "+W[i].m.v[1]);ok()}else{e.className="";void e.offsetWidth;e.className="bad";no()}}
+/* MEMORIA */
+let M;
+T.memory=()=>{const vs=sh(V).slice(0,6);M={c:sh(vs.flatMap((v,i)=>[{k:i,e:v[4]},{k:i,w:v[1]}])),o:[],d:0,mv:0};
+out(`<div class="card"><h2>🧠 Memoria: une el dibujo con su palabra</h2><p>Toca dos tarjetas. Si el dibujo y la palabra en inglés son pareja, ¡se quedan! Movimientos: <b id="mv">0</b></p><div class="mem">${M.c.map((c,i)=>`<button class="mc" id="m${i}" onclick="mf(${i})">❓</button>`).join("")}</div><div id="mm"></div></div>`)};
+function mf(i){const c=M.c[i],b=$("#m"+i);if(M.o.length>1||M.o.includes(i)||b.classList.contains("done"))return;b.className="mc up";b.innerHTML=c.e?`<span class="em">${c.e}</span>`:c.w;if(c.w)say(c.w);M.o.push(i);
+if(M.o.length==2){M.mv++;$("#mv").textContent=M.mv;const[a,z]=M.o,ca=M.c[a],cz=M.c[z];if(ca.k===cz.k&&(!!ca.e!==!!cz.e)){setTimeout(()=>{$("#m"+a).className="mc done";$("#m"+z).className="mc done";M.o=[];M.d++;ok();if(M.d==6)$("#mm").innerHTML=`<div class="big">🎉</div><button class="btn" onclick="T.memory()">Jugar otra vez 🔁</button>`},500)}else setTimeout(()=>{[a,z].forEach(x=>{const e=$("#m"+x);e.className="mc";e.textContent="❓"});M.o=[]},900)}}
+/* SOPA */
+let S;
+T.search=()=>{const N=10;let g,ws;for(;;){ws=sh(V).slice(0,7);g=Array.from({length:N},()=>Array(N).fill(""));let all=true;for(const v of ws){const w=v[1].toUpperCase();let p=false;for(let t=0;t<300&&!p;t++){const[dr,dc]=R([[0,1],[1,0],[1,1]]),r=RI(N),c=RI(N);if(r+dr*(w.length-1)>=N||c+dc*(w.length-1)>=N)continue;if([...w].every((ch,i)=>g[r+dr*i][c+dc*i]===""||g[r+dr*i][c+dc*i]===ch)){[...w].forEach((ch,i)=>g[r+dr*i][c+dc*i]=ch);p=true}}if(!p){all=false;break}}if(all)break}
+const L="ABCDEFGHIJKLMNOPRSTUVW";g=g.map(r=>r.map(x=>x||R([...L])));S={g,ws:ws.map(v=>v[1].toUpperCase()),f:new Set(),s:null};
+out(`<div class="card"><h2>🔍 Sopa de letras</h2><p>Busca en inglés la palabra con <b>ING</b> de cada pista. Toca la primera letra y luego la última. Pueden estar en horizontal ➡️, vertical ⬇️ o diagonal ↘️.</p><div id="cl">${ws.map((v,i)=>`<span class="chip" id="c${i}">${v[4]} ${v[3]}</span>`).join("")}</div><div class="ws">${g.map((r,y)=>r.map((x,c)=>`<button id="g${y}_${c}" onclick="wsel(${y},${c})">${x}</button>`).join("")).join("")}</div><div style="text-align:center"><button class="btn o" onclick="T.search()">Nueva sopa 🔁</button></div></div>`)};
+function wsel(r,c){const N=10;if(!S.s){S.s=[r,c];$(`#g${r}_${c}`).classList.add("s");return}
+const[sr,sc]=S.s;document.querySelectorAll(".ws .s").forEach(e=>e.classList.remove("s"));S.s=null;const dr=r-sr,dc=c-sc,n=Math.max(Math.abs(dr),Math.abs(dc));
+if(n==0||(dr&&dc&&Math.abs(dr)!=Math.abs(dc))){wsel(r,c);return}
+const cs=[];let s="";for(let i=0;i<=n;i++){const y=sr+Math.sign(dr)*i,x=sc+Math.sign(dc)*i;cs.push([y,x]);s+=S.g[y][x]}
+const rs=[...s].reverse().join("");let k=S.ws.findIndex(w=>w===s||w===rs);
+if(k>-1&&!S.f.has(k)){S.f.add(k);cs.forEach(([y,x])=>$(`#g${y}_${x}`).classList.add("f"));$("#c"+k).classList.add("f");say(S.ws[k].toLowerCase());ok();if(S.f.size==S.ws.length)toast("¡Encontraste todas! 🏆")}else no()}
+/* ORDENA */
+let B;
+T.build=()=>{B={n:0,done:0};bd()};
+function bd(){if(B.n>=5){out(`<div class="card"><div class="big">🧩</div><h2>¡Terminaste de ordenar!</h2><button class="btn" onclick="T.build()">Otra vez 🔁</button></div>`);return}
+const m=mk(),neg=Math.random()<.5;B.t=[m.s,m.b,...(neg?["not"]:[]),m.v[1]];B.line=[];B.bank=sh(B.t.map((w,i)=>i));B.es=`${P[m.i][2]} ${neg?"no ":""}${P[m.i][3]} ${m.v[3]}`;B.e=m.v[4];br()}
+function br(){out(`<div class="card"><h2>🧩 Ordena la frase (${B.n+1} de 5)</h2><div class="big">${B.e}</div><p style="text-align:center"><b>${B.es}</b></p><div class="line">${B.line.map(i=>`<button class="tk" style="background:var(--p)" onclick="bm(${i},0)">${B.t[i]}</button>`).join("")}</div><div>${B.bank.map(i=>`<button class="tk" onclick="bm(${i},1)">${B.t[i]}</button>`).join("")}</div><button class="btn" onclick="bk()">Comprobar ✔</button></div>`)}
+function bm(i,toLine){if(toLine){B.bank=B.bank.filter(x=>x!=i);B.line.push(i)}else{B.line=B.line.filter(x=>x!=i);B.bank.push(i)}br()}
+function bk(){if(B.line.map(i=>B.t[i]).join(" ")===B.t.join(" ")){say(B.t.join(" "));ok();B.n++;setTimeout(bd,1100)}else no()}
+/* MIMICA */
+T.mime=()=>{const m=mk(),t=`${m.s} ${m.b} ${m.v[1]}.`;stars;out(`<div class="card" style="text-align:center"><h2>🎭 ¡Juego de mímica!</h2><p>Lee la frase, escucha ${sp(t)} y <b>actúa</b> lo que dice. ¡Repítela en voz alta y diviértete!</p><div class="big">${m.v[4]}</div><h2 style="font-size:32px;color:var(--o)">${t}</h2><p>${m.es}</p><button class="btn p" onclick="ok();T.mime()">¡Lo hice! Otra 🎉</button></div>`);say(t)};
+/* NAV */
+const NV=[["learn","📖 Aprende","#7c4dff"],["vocab","🔊 Verbos","#18a0fb"],["quiz","❓ Quiz","#ff7a00"],["write","✏️ Escribe","#e6397a"],["memory","🧠 Memoria","#0fb67f"],["search","🔍 Sopa de letras","#9b59f0"],["build","🧩 Ordena","#e07b00"],["mime","🎭 Mímica","#d63384"]];
+$("#nav").innerHTML=NV.map(n=>`<button style="--c:${n[2]}" data-k="${n[0]}">${n[1]}</button>`).join("");
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("on"));b.classList.add("on");T[b.dataset.k]();window.scrollTo({top:0,behavior:"smooth"})});
+document.querySelector("nav button").click();
+$("#bg").innerHTML=Array.from({length:16},()=>`<span style="left:${RI(96)}%;animation-duration:${10+RI(14)}s;animation-delay:-${RI(20)}s">${R(["🎈","⭐","🌈","🦄","🎨","⚽","🍭","🚀"])}</span>`).join("");
+try{window.speechSynthesis.getVoices()}catch(e){}
+</script></body></html>
